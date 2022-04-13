@@ -22,7 +22,7 @@ try:
         if opt in ("-t", "--time"):
             time = int(arg)
         if opt in ("-p")
-            pid = int(arg)
+            pid = arg
         if opt in ("-c", "--ignore-connections"):
             ignore_connections = True
 except getopt.GetoptError:
