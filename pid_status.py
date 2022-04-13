@@ -40,6 +40,7 @@ def get_notebook_name():
 import psutil
 if psutil.pid_exists(pid):
     #print("a process with pid %d exists" % pid)
+    print("process still running")
 else:
     #print("a process with pid %d does not exist" % pid)
     client = boto3.client('sagemaker')
