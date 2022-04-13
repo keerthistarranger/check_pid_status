@@ -71,7 +71,7 @@ if os.path.exists(path_pid):
 else:
     client = boto3.client('sagemaker')
     client.stop_notebook_instance(
-         NotebookInstanceName=get_notebook_name()
+         NotebookInstanceName=get_notebook_name())
     
 
 
