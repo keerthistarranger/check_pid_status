@@ -51,14 +51,30 @@ def get_notebook_name():
 
 
 
-try:
-    os.kill(pid, 0)
-except OSError:
-    print("pid is unassigned")
+# try:
+#     os.kill(pid, 0)
+# except OSError:
+#     print("pid is unassigned")
+#     client = boto3.client('sagemaker')
+#     client.stop_notebook_instance(
+#         NotebookInstanceName=get_notebook_name()
+#     )
+# else:
+#     print("pid is in use")
+
+import os
+import os.path
+path_pid="/proc/"+str(pid)
+if os.path.exists(path_pid):
+    print("process stll running")
+else:
     client = boto3.client('sagemaker')
     client.stop_notebook_instance(
-        NotebookInstanceName=get_notebook_name()
-    )
-else:
-    print("pid is in use")
+         NotebookInstanceName=get_notebook_name()
+    
+
+
+
+
+
 
