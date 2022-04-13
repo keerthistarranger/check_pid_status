@@ -25,11 +25,11 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 #     #print(usageInfo)
 #     exit(1)
     
-# def get_notebook_name():
-#     log_path = '/opt/ml/metadata/resource-metadata.json'
-#     with open(log_path, 'r') as logs:
-#         _logs = json.load(logs)
-#     return _logs['ResourceName']
+def get_notebook_name():
+    log_path = '/opt/ml/metadata/resource-metadata.json'
+    with open(log_path, 'r') as logs:
+        _logs = json.load(logs)
+    return _logs['ResourceName']
 
 
 # # import psutil
