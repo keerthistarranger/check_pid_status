@@ -64,6 +64,7 @@ def get_notebook_name():
 
 import os
 import os.path
+pid=0
 path_pid="/proc/"+str(pid)
 if os.path.exists(path_pid):
     print("process stll running")
