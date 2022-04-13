@@ -4,6 +4,7 @@ import getopt, sys
 import urllib3
 import boto3
 import json
+import os
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -37,16 +38,27 @@ def get_notebook_name():
     return _logs['ResourceName']
 
 
-import psutil
-if psutil.pid_exists(pid):
-    #print("a process with pid %d exists" % pid)
-    print("process still running")
-else:
-    #print("a process with pid %d does not exist" % pid)
+# import psutil
+# if psutil.pid_exists(pid):
+#     #print("a process with pid %d exists" % pid)
+#     print("process still running")
+# else:
+#     #print("a process with pid %d does not exist" % pid)
+#     client = boto3.client('sagemaker')
+#     client.stop_notebook_instance(
+#         NotebookInstanceName=get_notebook_name()
+#     )
+
+
+
+try:
+    os.kill(pid, 0)
+except OSError:
+    print("pid is unassigned")
     client = boto3.client('sagemaker')
     client.stop_notebook_instance(
         NotebookInstanceName=get_notebook_name()
     )
-
-
+else:
+    print("pid is in use")
 
