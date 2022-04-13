@@ -8,22 +8,22 @@ import os
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# # Read in command-line parameters
-# idle = True
-# port = '8443'
-# pid = 12345
-# ignore_connections = False
-# try:
-#     opts, args = getopt.getopt(sys.argv[1:], "p:", ["pid="])
-#     if len(opts) == 0:
-#         raise getopt.GetoptError("No input parameters!")
-#     for opt, arg in opts:
-#         if opt in ("-p", "--pid")
-#             pid = arg
+# Read in command-line parameters
+idle = True
+port = '8443'
+pid = 12345
+ignore_connections = False
+try:
+    opts, args = getopt.getopt(sys.argv[1:], "p:", ["pid="])
+    if len(opts) == 0:
+        raise getopt.GetoptError("No input parameters!")
+    for opt, arg in opts:
+        if opt in ("-p", "--pid")
+            pid = arg
         
-# except getopt.GetoptError:
-#     #print(usageInfo)
-#     exit(1)
+except getopt.GetoptError:
+    #print(usageInfo)
+    exit(1)
     
 def get_notebook_name():
     log_path = '/opt/ml/metadata/resource-metadata.json'
@@ -56,20 +56,20 @@ def get_notebook_name():
 # # else:
 # #     print("pid is in use")
 
-# import os
-# import os.path
-# #pid=0
-# path_pid="/proc/"+str(pid)
-# if os.path.exists(path_pid):
-#     print("process stll running")
-# else:
-#     client = boto3.client('sagemaker')
-#     client.stop_notebook_instance(
-#          NotebookInstanceName=get_notebook_name())
-
-client = boto3.client('sagemaker')
-client.stop_notebook_instance(
+import os
+import os.path
+#pid=0
+path_pid="/proc/"+str(pid)
+if os.path.exists(path_pid):
+    print("process stll running")
+else:
+    client = boto3.client('sagemaker')
+    client.stop_notebook_instance(
          NotebookInstanceName=get_notebook_name())
+
+# client = boto3.client('sagemaker')
+# client.stop_notebook_instance(
+#          NotebookInstanceName=get_notebook_name())
     
 
 
