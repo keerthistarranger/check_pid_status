@@ -19,7 +19,7 @@ try:
     if len(opts) == 0:
         raise getopt.GetoptError("No input parameters!")
     for opt, arg in opts:
-        if opt in ("-p", "--pid")
+        if opt in ("-p", "--pid") :
             pid = int(arg)
         
 except getopt.GetoptError:
