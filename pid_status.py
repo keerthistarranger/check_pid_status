@@ -32,16 +32,16 @@ def get_notebook_name():
     return _logs['ResourceName']
 
 
-# # import psutil
-# # if psutil.pid_exists(pid):
-# #     #print("a process with pid %d exists" % pid)
-# #     print("process still running")
-# # else:
-# #     #print("a process with pid %d does not exist" % pid)
-# #     client = boto3.client('sagemaker')
-# #     client.stop_notebook_instance(
-# #         NotebookInstanceName=get_notebook_name()
-# #     )
+import psutil
+if psutil.pid_exists(pid):
+    #print("a process with pid %d exists" % pid)
+    print("process still running")
+else:
+    #print("a process with pid %d does not exist" % pid)
+    client = boto3.client('sagemaker')
+    client.stop_notebook_instance(
+        NotebookInstanceName=get_notebook_name()
+    )
 
 
 
@@ -56,16 +56,16 @@ def get_notebook_name():
 # # else:
 # #     print("pid is in use")
 
-import os
-import os.path
-#pid=0
-path_pid="/proc/"+str(pid)
-if os.path.exists(path_pid):
-    print("process stll running")
-else:
-    client = boto3.client('sagemaker')
-    client.stop_notebook_instance(
-         NotebookInstanceName=get_notebook_name())
+# import os
+# import os.path
+# #pid=0
+# path_pid="/proc/"+str(pid)
+# if os.path.exists(path_pid):
+#     print("process stll running")
+# else:
+#     client = boto3.client('sagemaker')
+#     client.stop_notebook_instance(
+#          NotebookInstanceName=get_notebook_name())
 
 # client = boto3.client('sagemaker')
 # client.stop_notebook_instance(
