@@ -14,19 +14,13 @@ port = '8443'
 pid = 12345
 ignore_connections = False
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "ht:p:c", ["help","time=","pid=","ignore-connections"])
+    opts, args = getopt.getopt(sys.argv[1:], "p:", ["pid="])
     if len(opts) == 0:
         raise getopt.GetoptError("No input parameters!")
     for opt, arg in opts:
-        if opt in ("-h", "--help"):
-            print(helpInfo)
-            exit(0)
-        if opt in ("-t", "--time"):
-            time = int(arg)
-        if opt in ("-p")
+        if opt in ("-p", "--pid")
             pid = arg
-        if opt in ("-c", "--ignore-connections"):
-            ignore_connections = True
+        
 except getopt.GetoptError:
     #print(usageInfo)
     exit(1)
