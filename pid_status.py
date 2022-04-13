@@ -5,6 +5,7 @@ import urllib3
 import boto3
 import json
 
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Read in command-line parameters
 idle = True
@@ -36,24 +37,15 @@ def get_notebook_name():
     return _logs['ResourceName']
 
 
-# import psutil
-# if psutil.pid_exists(pid):
-#     print("a process with pid %d exists" % pid)
-#     client = boto3.client('sagemaker')
-#     client.stop_notebook_instance(
-#         NotebookInstanceName=get_notebook_name()
-#     )
-
-# else:
-#     print("a process with pid %d does not exist" % pid)
-#     client = boto3.client('sagemaker')
-#     client.stop_notebook_instance(
-#         NotebookInstanceName=get_notebook_name()
-#     )
-
-x=True
-if x:
+import psutil
+if psutil.pid_exists(pid):
+    #print("a process with pid %d exists" % pid)
+else:
+    #print("a process with pid %d does not exist" % pid)
     client = boto3.client('sagemaker')
     client.stop_notebook_instance(
-         NotebookInstanceName=get_notebook_name()    )
+        NotebookInstanceName=get_notebook_name()
+    )
+
+
 
