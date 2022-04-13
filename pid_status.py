@@ -13,17 +13,17 @@ idle = True
 port = '8443'
 pid = 12345
 ignore_connections = False
-try:
-    opts, args = getopt.getopt(sys.argv[1:], "p:", ["pid="])
-    if len(opts) == 0:
-        raise getopt.GetoptError("No input parameters!")
-    for opt, arg in opts:
-        if opt in ("-p", "--pid")
-            pid = arg
+# try:
+#     opts, args = getopt.getopt(sys.argv[1:], "p:", ["pid="])
+#     if len(opts) == 0:
+#         raise getopt.GetoptError("No input parameters!")
+#     for opt, arg in opts:
+#         if opt in ("-p", "--pid")
+#             pid = arg
         
-except getopt.GetoptError:
-    #print(usageInfo)
-    exit(1)
+# except getopt.GetoptError:
+#     #print(usageInfo)
+#     exit(1)
     
 def get_notebook_name():
     log_path = '/opt/ml/metadata/resource-metadata.json'
